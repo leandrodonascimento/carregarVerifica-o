@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+
+
+  </style>
+</head>
+<body>
+  
+  <p style="display: none" id="paragrafo">Estamos fora do horário de funcionamento</p> 
+  <button style="display: none" id="box" class="btn btn-warning">Adicionar ao carrinho</button>
+
+  <script>
+  
+    function carregarVerificação()
+    {
+      var button = window.document.querySelector("#box");
+      var paragrafo = window.document.querySelector("#paragrafo");
+
+      verificar();
+      function verificar()
+      {
+        var data = new Date();
+        var hora = data.getHours();
+        var minuto = data.getMinutes();
+        // var hora = 13;
+        // var minuto = 45;
+
+        if ((hora >= 18) && (minuto >= 10))
+        {
+          paragrafo.style.display = "block";
+          button.style.display = "none";
+          paragrafo.textContent = "Estamos fora do horário de funcionamento";
+        }
+
+        else
+        {
+          paragrafo.style.display = "block";
+          button.style.display = "block";
+          paragrafo.textContent = "Estamos no horário de funcionamento";
+        }
+      }
+    }
+
+    window.addEventListener("load", carregarVerificação);
+
+  </script>
+
+</body>
+</html>
